@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de CEP</title>
+    <title>Consumo de API - Posts</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="container">
-        <h1>Consulta de CEP</h1>
+        <h1>Consumo de API - Posts</h1>
         <div class="form-container">
-            <input type="text" id="cepInput" placeholder="Digite o CEP (00000-000 ou 00000000)" maxlength="9">
-            <button onclick="consultarCEP()">Buscar</button>
+            <input type="number" id="userIdInput" placeholder="Digite o ID do usuário (1-10)" min="1" max="10">
+            <button onclick="buscarPosts()">Buscar Posts</button>
+            <button onclick="buscarTodosPosts()">Todos os Posts</button>
         </div>
         <div id="resultado" class="resultado"></div>
     </div>
