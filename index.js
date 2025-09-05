@@ -11,7 +11,7 @@ async function buscarPosts() {
     }
 
     try {
-    const response = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userIdInput}`);
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userIdInput}`, { timeout: 5000 });
     const posts = response.data;
 
         if (posts.length === 0) {
@@ -31,7 +31,7 @@ async function buscarTodosPosts() {
     resultadoDiv.innerHTML = '<p class="loading">Carregando todos os posts...</p>';
 
     try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts', { timeout: 5000 });
     const posts = response.data;
 
         const primeiros10Posts = posts.slice(0, 10);
@@ -76,7 +76,7 @@ async function consultarCEP() {
     }
 
     try {
-    const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+    const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`, { timeout: 5000 });
     const data = response.data;
 
         if (data.erro) {
