@@ -11,8 +11,8 @@ async function buscarPosts() {
     }
 
     try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userIdInput}`);
-        const posts = await response.json();
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userIdInput}`);
+    const posts = response.data;
 
         if (posts.length === 0) {
             resultadoDiv.innerHTML = '<p class="error">Nenhum post encontrado para este usuário.</p>';
@@ -31,8 +31,8 @@ async function buscarTodosPosts() {
     resultadoDiv.innerHTML = '<p class="loading">Carregando todos os posts...</p>';
 
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-        const posts = await response.json();
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    const posts = response.data;
 
         const primeiros10Posts = posts.slice(0, 10);
         exibirPosts(primeiros10Posts);
@@ -76,8 +76,8 @@ async function consultarCEP() {
     }
 
     try {
-        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-        const data = await response.json();
+    const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+    const data = response.data;
 
         if (data.erro) {
             resultadoDiv.innerHTML = '<p class="error">CEP não encontrado.</p>';
